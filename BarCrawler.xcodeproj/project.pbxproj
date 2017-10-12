@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8475DAA61F90364B0018B2A2 /* DijkstraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475DAA51F90364B0018B2A2 /* DijkstraNode.swift */; };
+		8475DAA81F9036750018B2A2 /* DijkstraConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475DAA71F9036750018B2A2 /* DijkstraConnection.swift */; };
+		8475DAAA1F9036C00018B2A2 /* DijkstraPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475DAA91F9036C00018B2A2 /* DijkstraPath.swift */; };
+		8475DAAC1F9036F00018B2A2 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475DAAB1F9036F00018B2A2 /* Dijkstra.swift */; };
 		849D7DE81F902B490020940B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D7DE71F902B490020940B /* AppDelegate.swift */; };
 		849D7DED1F902B490020940B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D7DEB1F902B490020940B /* Main.storyboard */; };
 		849D7DEF1F902B490020940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849D7DEE1F902B490020940B /* Assets.xcassets */; };
@@ -33,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8475DAA51F90364B0018B2A2 /* DijkstraNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstraNode.swift; sourceTree = "<group>"; };
+		8475DAA71F9036750018B2A2 /* DijkstraConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstraConnection.swift; sourceTree = "<group>"; };
+		8475DAA91F9036C00018B2A2 /* DijkstraPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstraPath.swift; sourceTree = "<group>"; };
+		8475DAAB1F9036F00018B2A2 /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
 		849D7DE41F902B490020940B /* BarCrawler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarCrawler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849D7DE71F902B490020940B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849D7DEC1F902B490020940B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +78,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8475DAA41F90361B0018B2A2 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				849D7E181F9031990020940B /* BarListViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		8475DAAD1F9037210018B2A2 /* Dijkstra */ = {
+			isa = PBXGroup;
+			children = (
+				8475DAAB1F9036F00018B2A2 /* Dijkstra.swift */,
+				8475DAA91F9036C00018B2A2 /* DijkstraPath.swift */,
+				8475DAA51F90364B0018B2A2 /* DijkstraNode.swift */,
+				8475DAA71F9036750018B2A2 /* DijkstraConnection.swift */,
+			);
+			path = Dijkstra;
+			sourceTree = "<group>";
+		};
+		8475DAAE1F9037350018B2A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8475DAAD1F9037210018B2A2 /* Dijkstra */,
+				849D7E091F902CBF0020940B /* Yelp */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		849D7DDB1F902B480020940B = {
 			isa = PBXGroup;
 			children = (
@@ -92,11 +128,11 @@
 			isa = PBXGroup;
 			children = (
 				849D7DE71F902B490020940B /* AppDelegate.swift */,
+				8475DAAE1F9037350018B2A2 /* Services */,
 				849D7E171F90307C0020940B /* Models */,
 				849D7E161F9030700020940B /* Extension */,
-				849D7E091F902CBF0020940B /* Yelp */,
 				849D7DEB1F902B490020940B /* Main.storyboard */,
-				849D7E181F9031990020940B /* BarListViewController.swift */,
+				8475DAA41F90361B0018B2A2 /* View Controller */,
 				849D7DEE1F902B490020940B /* Assets.xcassets */,
 				849D7DF01F902B490020940B /* LaunchScreen.storyboard */,
 				849D7DF31F902B490020940B /* Info.plist */,
@@ -244,10 +280,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8475DAAC1F9036F00018B2A2 /* Dijkstra.swift in Sources */,
 				849D7E131F902F7C0020940B /* LocationModel.swift in Sources */,
 				849D7E151F9030470020940B /* String+Extension.swift in Sources */,
 				849D7E0D1F902E7C0020940B /* YelpBarService.swift in Sources */,
+				8475DAA61F90364B0018B2A2 /* DijkstraNode.swift in Sources */,
+				8475DAA81F9036750018B2A2 /* DijkstraConnection.swift in Sources */,
 				849D7DE81F902B490020940B /* AppDelegate.swift in Sources */,
+				8475DAAA1F9036C00018B2A2 /* DijkstraPath.swift in Sources */,
 				849D7E111F902EF30020940B /* BarModel.swift in Sources */,
 				849D7E191F9031990020940B /* BarListViewController.swift in Sources */,
 				849D7E081F902CA70020940B /* Constants.swift in Sources */,
