@@ -13,6 +13,8 @@
 		849D7DEF1F902B490020940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849D7DEE1F902B490020940B /* Assets.xcassets */; };
 		849D7DF21F902B490020940B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D7DF01F902B490020940B /* LaunchScreen.storyboard */; };
 		849D7DFD1F902B4B0020940B /* BarCrawlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D7DFC1F902B4B0020940B /* BarCrawlerTests.swift */; };
+		849D7E081F902CA70020940B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D7E071F902CA70020940B /* Constants.swift */; };
+		849D7E0B1F902D540020940B /* YelpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D7E0A1F902D540020940B /* YelpRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		849D7DF81F902B4B0020940B /* BarCrawlerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarCrawlerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		849D7DFC1F902B4B0020940B /* BarCrawlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCrawlerTests.swift; sourceTree = "<group>"; };
 		849D7DFE1F902B4B0020940B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849D7E071F902CA70020940B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		849D7E0A1F902D540020940B /* YelpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				849D7DE71F902B490020940B /* AppDelegate.swift */,
 				849D7DE91F902B490020940B /* ViewController.swift */,
+				849D7E091F902CBF0020940B /* Yelp */,
 				849D7DEB1F902B490020940B /* Main.storyboard */,
 				849D7DEE1F902B490020940B /* Assets.xcassets */,
 				849D7DF01F902B490020940B /* LaunchScreen.storyboard */,
@@ -94,6 +99,15 @@
 				849D7DFE1F902B4B0020940B /* Info.plist */,
 			);
 			path = BarCrawlerTests;
+			sourceTree = "<group>";
+		};
+		849D7E091F902CBF0020940B /* Yelp */ = {
+			isa = PBXGroup;
+			children = (
+				849D7E071F902CA70020940B /* Constants.swift */,
+				849D7E0A1F902D540020940B /* YelpRequest.swift */,
+			);
+			path = Yelp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +215,8 @@
 			files = (
 				849D7DEA1F902B490020940B /* ViewController.swift in Sources */,
 				849D7DE81F902B490020940B /* AppDelegate.swift in Sources */,
+				849D7E081F902CA70020940B /* Constants.swift in Sources */,
+				849D7E0B1F902D540020940B /* YelpRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
