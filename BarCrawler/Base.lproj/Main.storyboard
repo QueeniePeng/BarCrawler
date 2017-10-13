@@ -5,12 +5,17 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
         </array>
     </customFonts>
     <scenes>
@@ -25,6 +30,65 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="alF-iV-KhW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCell" rowHeight="160" id="8TZ-EA-cYv" customClass="BarCell" customModule="BarCrawler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8TZ-EA-cYv" id="hYX-dV-ygC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XjC-z8-eft">
+                                                    <rect key="frame" x="16" y="14" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="130" id="7I7-Yf-44y"/>
+                                                        <constraint firstAttribute="width" secondItem="XjC-z8-eft" secondAttribute="height" multiplier="1:1" id="elr-84-jvL"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BarName" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhW-m6-bgM">
+                                                    <rect key="frame" x="156" y="121.5" width="211" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDi-2P-RzP" userLabel="DistanceView">
+                                                    <rect key="frame" x="283" y="14" width="91.5" height="40.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX6-KF-nYd">
+                                                            <rect key="frame" x="10" y="10.5" width="71.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.83529411760000005" green="0.36862745099999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="iX6-KF-nYd" firstAttribute="top" secondItem="GDi-2P-RzP" secondAttribute="top" constant="10" id="AIJ-hw-crD"/>
+                                                        <constraint firstItem="iX6-KF-nYd" firstAttribute="leading" secondItem="GDi-2P-RzP" secondAttribute="leading" constant="10" id="Jmh-kI-ba3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="iX6-KF-nYd" secondAttribute="trailing" constant="10" id="KhS-n0-0a7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="iX6-KF-nYd" secondAttribute="bottom" constant="10" id="MST-Ht-RbW"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="GDi-2P-RzP" secondAttribute="trailing" id="Eqx-5E-j9D"/>
+                                                <constraint firstItem="XjC-z8-eft" firstAttribute="top" secondItem="hYX-dV-ygC" secondAttribute="top" constant="14" id="ExC-zT-JNe"/>
+                                                <constraint firstItem="XjC-z8-eft" firstAttribute="centerY" secondItem="hYX-dV-ygC" secondAttribute="centerY" id="Nlr-Hj-xJH"/>
+                                                <constraint firstItem="XjC-z8-eft" firstAttribute="leading" secondItem="hYX-dV-ygC" secondAttribute="leading" constant="16" id="T7X-Xr-MJ3"/>
+                                                <constraint firstItem="GDi-2P-RzP" firstAttribute="top" secondItem="hYX-dV-ygC" secondAttribute="top" constant="14" id="doO-38-8ab"/>
+                                                <constraint firstItem="bhW-m6-bgM" firstAttribute="bottom" secondItem="XjC-z8-eft" secondAttribute="bottom" id="e2J-Nc-vfZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="bhW-m6-bgM" secondAttribute="trailing" constant="8" id="slH-V1-N4x"/>
+                                                <constraint firstAttribute="bottom" secondItem="XjC-z8-eft" secondAttribute="bottom" constant="15.5" id="u2s-Ps-HnN"/>
+                                                <constraint firstItem="bhW-m6-bgM" firstAttribute="leading" secondItem="XjC-z8-eft" secondAttribute="trailing" constant="10" id="x4r-Si-a6z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="IVBarImage" destination="XjC-z8-eft" id="OBi-CD-a0j"/>
+                                            <outlet property="LBBarName" destination="bhW-m6-bgM" id="Dug-Yq-XyN"/>
+                                            <outlet property="LBDistance" destination="iX6-KF-nYd" id="jfq-3F-MBi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzh-1c-vuD">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -62,6 +126,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="uKz-jg-oFp"/>
+                    <connections>
+                        <outlet property="BarListTableView" destination="alF-iV-KhW" id="drC-ie-OJ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

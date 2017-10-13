@@ -11,20 +11,36 @@ import CoreLocation
 
 class BarListViewController: UIViewController {
     
-    fileprivate var barModels = [BarModel]()
+    // view
+    @IBOutlet weak var BarListTableView: UITableView!
     
     fileprivate let alert = Alert()
+    fileprivate var barModels = [BarModel]()
     fileprivate var userLocation: LocationModel?
     fileprivate let locationManager = CLLocationManager()
-
+    fileprivate let barCellIdentifier = "barCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        BarListTableView.dataSource = self
         
         checkLocationService()
         checkLocationAccess()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.title = "Bar Crawler"
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        BarListTableView.rowHeight = UITableViewAutomaticDimension
+        BarListTableView.estimatedRowHeight = 160
+    }
+    
+    
     @IBAction func BarCrawl(_ sender: Any) {
         if userLocation == nil {
             let deniedAlert = alert.showAlert(.notUpdatedlocation)
@@ -38,6 +54,7 @@ class BarListViewController: UIViewController {
 // MARK: - Networking: get
 
 extension BarListViewController {
+    
     func getBarList() {
         let yelpClient = YelpClient()
         yelpClient.barList { [weak self] (results, error) in
@@ -51,12 +68,34 @@ extension BarListViewController {
             } else {
                 self?.sortBarList(results) // store bar data
             }
+            self?.BarListTableView.reloadData()
         }
     }
-    // by distance
+    
+    // sort by distance
     func sortBarList(_ results: [BarModel]) {
         let sortedBarModels = results.sorted { $0.distanceFromUser! < $1.distanceFromUser! }
         self.barModels = sortedBarModels
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+
+extension BarListViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return barModels.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let barCell = tableView.dequeueReusableCell(withIdentifier: barCellIdentifier, for: indexPath) as! BarCell
+        if !barModels.isEmpty {
+            let barModel = barModels[indexPath.row]
+            barCell.configBarCell(barModel: barModel)
+        }
+        return barCell
     }
 }
 

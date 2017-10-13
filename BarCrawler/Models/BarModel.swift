@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BarModel {
+class BarModel: DijkstraNode {
     let id: String
     let location: LocationModel
     
@@ -32,6 +32,6 @@ class BarModel {
         self.distanceFromUser = distance
         self.image = imageURL.urlToImage()
         self.location.address = address.joined(separator: " ")
-
+        super.init(name: name)
     }
 }
