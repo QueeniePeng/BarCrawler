@@ -19,10 +19,14 @@ class BarListViewController: UIViewController {
     fileprivate var userLocation: LocationModel?
     fileprivate let locationManager = CLLocationManager()
     fileprivate let barCellIdentifier = "barCell"
+    fileprivate let resultSegueIdentifier = "showResultSegue"
+    
+    var destinationBar: BarModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        BarListTableView.delegate = self
         BarListTableView.dataSource = self
         
         checkLocationService()
@@ -38,6 +42,7 @@ class BarListViewController: UIViewController {
         super.viewWillLayoutSubviews()
         BarListTableView.rowHeight = UITableViewAutomaticDimension
         BarListTableView.estimatedRowHeight = 160
+        BarListTableView.separatorStyle = .none
     }
     
     
@@ -69,6 +74,7 @@ extension BarListViewController {
                 self?.sortBarList(results) // store bar data
             }
             self?.BarListTableView.reloadData()
+            self?.BarListTableView.separatorStyle = .singleLine
         }
     }
     
@@ -98,6 +104,32 @@ extension BarListViewController: UITableViewDataSource {
         return barCell
     }
 }
+
+// MARK: - UITableViewDelegate: Segue
+
+extension BarListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        destinationBar = barModels[indexPath.row]
+        performSegue(withIdentifier: resultSegueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == resultSegueIdentifier {
+            if let resultsVC = segue.destination as? ResultsViewController {
+                for barModel in barModels {
+                    barModel.reset()
+                }
+                let userModel = UserModel(location: LocationModel(latitude: (userLocation?.latitude)!,
+                                                                  longitude: (userLocation?.longitude)!),
+                                          name: "User")
+                resultsVC.destinationBar = destinationBar
+                resultsVC.barModels = barModels
+                resultsVC.userModel = userModel
+            }
+        }
+    }
+}
+
 
 // MARK: - Core Location
 

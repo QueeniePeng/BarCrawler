@@ -18,4 +18,8 @@ class DijkstraNode {
     init(name: String) {
         self.name = name
     }
+    func reset() {
+        self.visited = false
+        self.connections = []
+    }
 }

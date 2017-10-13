@@ -11,8 +11,10 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueExtras.ttc">
+            <string>HelveticaNeue-CondensedBlack</string>
         </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Light</string>
@@ -94,8 +96,8 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzy-sR-YWa">
-                                        <rect key="frame" x="132" y="6" width="111" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <rect key="frame" x="132.5" y="6" width="110" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="18"/>
                                         <state key="normal" title="Let's Crawl &gt;&gt;">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -104,7 +106,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="0.73929794520547942" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.83529411760000005" green="0.36862745099999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="uzy-sR-YWa" firstAttribute="centerY" secondItem="wzh-1c-vuD" secondAttribute="centerY" id="4EK-TZ-VVK"/>
                                     <constraint firstAttribute="height" constant="44" id="4FS-VQ-H8K"/>
@@ -128,11 +130,27 @@
                     <navigationItem key="navigationItem" id="uKz-jg-oFp"/>
                     <connections>
                         <outlet property="BarListTableView" destination="alF-iV-KhW" id="drC-ie-OJ0"/>
+                        <segue destination="IuF-Da-Non" kind="show" identifier="showResultSegue" id="7da-cg-hg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="dCg-qD-5lP">
+            <objects>
+                <viewController id="IuF-Da-Non" customClass="ResultsViewController" customModule="BarCrawler" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1p8-3H-Loq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Urh-0w-jDt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ElJ-Iz-HKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4S6-WA-KAs">
