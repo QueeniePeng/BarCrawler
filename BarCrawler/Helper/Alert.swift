@@ -9,22 +9,25 @@
 import UIKit
 
 class Alert {
-    
     enum LocationError {
         case disableLocationService
         case disableLocationAccess
+        case notUpdatedlocation
     }
     
-    fileprivate let locationAlertTitle: String = "Location"
-    fileprivate let locationServiceAlertMessage: String = "Location service not enable."
-    fileprivate let locationAccessAlertMessage: String = "Bar Crawl requires location access to use the service."
+    private let locationAlertTitle: String = "Location"
+    private let locationServiceAlertMessage: String = "Location service not enable."
+    private let locationAccessAlertMessage: String = "Bar Crawl requires location access to use the service."
+    private let locationNotUpdatedAlertMessage: String = "We need your location to use BarCrawler."
     
-    func alertContent(_ locationError: LocationError) -> (title: String, message: String) {
+    private func alertContent(_ locationError: LocationError) -> (title: String, message: String) {
         switch locationError {
         case .disableLocationService:
             return (title: locationAlertTitle, message: locationServiceAlertMessage)
         case .disableLocationAccess:
             return (title: locationAlertTitle, message: locationAccessAlertMessage)
+        case .notUpdatedlocation:
+            return (title: locationAlertTitle, message: locationNotUpdatedAlertMessage)
         }
     }
 }

@@ -21,10 +21,17 @@ class BarListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-
+        
         checkLocationService()
         checkLocationAccess()
-        getBarList()
+    }
+    @IBAction func BarCrawl(_ sender: Any) {
+        if userLocation == nil {
+            let deniedAlert = alert.showAlert(.notUpdatedlocation)
+            present(deniedAlert, animated: true, completion: nil)
+        } else {
+            getBarList()
+        }
     }
 }
 

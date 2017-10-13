@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Bar List View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -16,7 +21,44 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="alF-iV-KhW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzh-1c-vuD">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzy-sR-YWa">
+                                        <rect key="frame" x="132" y="6" width="111" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Let's Crawl &gt;&gt;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="BarCrawl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gmg-bh-WtP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="0.73929794520547942" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uzy-sR-YWa" firstAttribute="centerY" secondItem="wzh-1c-vuD" secondAttribute="centerY" id="4EK-TZ-VVK"/>
+                                    <constraint firstAttribute="height" constant="44" id="4FS-VQ-H8K"/>
+                                    <constraint firstItem="uzy-sR-YWa" firstAttribute="top" secondItem="wzh-1c-vuD" secondAttribute="top" constant="6" id="AaV-Dj-hJh"/>
+                                    <constraint firstItem="uzy-sR-YWa" firstAttribute="centerX" secondItem="wzh-1c-vuD" secondAttribute="centerX" id="h5w-YU-avq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wzh-1c-vuD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6EM-KY-72Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wzh-1c-vuD" secondAttribute="bottom" id="Bxr-pp-4Ee"/>
+                            <constraint firstItem="alF-iV-KhW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IjX-J2-yww"/>
+                            <constraint firstItem="alF-iV-KhW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wgr-RA-BMn"/>
+                            <constraint firstItem="wzh-1c-vuD" firstAttribute="top" secondItem="alF-iV-KhW" secondAttribute="bottom" id="cmL-mi-DeT"/>
+                            <constraint firstItem="wzh-1c-vuD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gkb-0c-LsN"/>
+                            <constraint firstItem="alF-iV-KhW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uqA-gq-hLp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="uKz-jg-oFp"/>
