@@ -17,6 +17,14 @@ class BarModel: DijkstraNode {
     var image: UIImage?
     var rating: Double?
     var distanceFromUser: Int?
+
+    // MARK: cheating for user
+    init(name: String,
+         location: LocationModel) {
+        self.id = "user"
+        self.location = location
+        super.init(name: name)
+    }
     
     init(id: String,
          name: String,
@@ -33,5 +41,11 @@ class BarModel: DijkstraNode {
         self.image = imageURL.urlToImage()
         self.location.address = address.joined(separator: " ")
         super.init(name: name)
+    }
+}
+
+extension BarModel : Equatable {
+    static func ==(lhs: BarModel, rhs: BarModel) -> Bool {
+        return lhs.id == rhs.id
     }
 }

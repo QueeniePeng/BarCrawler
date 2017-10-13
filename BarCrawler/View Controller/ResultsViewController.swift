@@ -24,6 +24,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ResultTableView.dataSource = self
+        calculateDijkstra()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +37,27 @@ class ResultsViewController: UIViewController {
         ResultTableView.rowHeight = UITableViewAutomaticDimension
         ResultTableView.estimatedRowHeight = 160
         ResultTableView.separatorStyle = .none
+    }
+}
+
+// MARK: - Dijkstra
+
+extension ResultsViewController {
+    private func calculateDijkstra() {
+        
+        let barCrawlerService = BarCrawlerService(userModel: userModel!,
+                                                  barModels: barModels!,
+                                                  destinationBar: destinationBar!)
+        if let sortedBarNames = barCrawlerService.getDijkstraPath() {
+            for name in sortedBarNames {
+                print("sorted: \(name)")
+                sortedBarModels += barModels!.filter { $0.name == name }
+                ResultTableView.reloadData()
+                ResultTableView.separatorStyle = .singleLine
+            }
+        } else {
+            print("can't bar crawwling for some unknown reason")
+        }
     }
 }
 
