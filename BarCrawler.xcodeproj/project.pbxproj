@@ -28,6 +28,7 @@
 		84CD582A1F9040E100361C17 /* BarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD58291F9040E100361C17 /* BarCell.swift */; };
 		84CD582D1F904E3800361C17 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD582C1F904E3800361C17 /* ResultsViewController.swift */; };
 		84CD582F1F904E4F00361C17 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD582E1F904E4F00361C17 /* UserModel.swift */; };
+		84CD58311F9050CB00361C17 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD58301F9050CB00361C17 /* ResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		84CD58291F9040E100361C17 /* BarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCell.swift; sourceTree = "<group>"; };
 		84CD582C1F904E3800361C17 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		84CD582E1F904E4F00361C17 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		84CD58301F9050CB00361C17 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				84CD58291F9040E100361C17 /* BarCell.swift */,
+				84CD58301F9050CB00361C17 /* ResultCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -323,6 +326,7 @@
 				8475DAAA1F9036C00018B2A2 /* DijkstraPath.swift in Sources */,
 				849D7E111F902EF30020940B /* BarModel.swift in Sources */,
 				849D7E191F9031990020940B /* BarListViewController.swift in Sources */,
+				84CD58311F9050CB00361C17 /* ResultCell.swift in Sources */,
 				849D7E081F902CA70020940B /* Constants.swift in Sources */,
 				849D7E0F1F902EB10020940B /* YelpClient.swift in Sources */,
 				849D7E0B1F902D540020940B /* YelpRequest.swift in Sources */,

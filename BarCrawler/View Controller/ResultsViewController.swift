@@ -10,30 +10,50 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
+    // view
+    @IBOutlet weak var ResultTableView: UITableView!
+    
     var barModels: [BarModel]?
     var userModel: UserModel?
     var destinationBar: BarModel?
     
+    var sortedBarModels: [BarModel] = []
+    
+    fileprivate let resultCellIdentifier = "resultCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        ResultTableView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.title = "Bar Crawler"
     }
-    */
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        ResultTableView.rowHeight = UITableViewAutomaticDimension
+        ResultTableView.estimatedRowHeight = 160
+        ResultTableView.separatorStyle = .none
+    }
+}
 
+
+// MARK: - UITableViewDataSource
+
+extension ResultsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sortedBarModels.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let resultCell = tableView.dequeueReusableCell(withIdentifier: resultCellIdentifier, for: indexPath) as! ResultCell
+        let barModel = sortedBarModels[indexPath.row]
+        resultCell.configResultCell(barModel: barModel)
+        
+        return resultCell
+    }
 }
