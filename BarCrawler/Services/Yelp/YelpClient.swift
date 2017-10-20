@@ -11,9 +11,9 @@ import Foundation
 class YelpClient: NSObject {
     
     fileprivate var yelpRequest = YelpRequest()
-    fileprivate let method = "GET"
-    fileprivate let headerValue = "Bearer" + " " + Constants.accessToken
-    fileprivate let headerField = "Authorization"
+    private let method = "GET"
+    private let headerValue = "Bearer" + " " + Constants.accessToken
+    private let headerField = "Authorization"
     
     func makeRequest(url: URL, method: String, headerValue: String, headerField: String) -> URLRequest? {
         var request = URLRequest(url: url)
@@ -23,12 +23,14 @@ class YelpClient: NSObject {
     }
 }
 
-
 // get - barList
 extension YelpClient {
     
     func barList(completion: @escaping (_ results: [BarModel]?, _ error: NSError?) -> Void) {
-        guard let request = makeRequest(url: yelpRequest.barListURL!, method: method, headerValue: headerValue, headerField: headerField) else { return }
+        guard let request = makeRequest(url: yelpRequest.barListURL!,
+                                        method: method,
+                                        headerValue: headerValue,
+                                        headerField: headerField) else { return }
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 print(error!.localizedDescription)

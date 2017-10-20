@@ -52,9 +52,9 @@ extension ResultsViewController {
             for name in sortedBarNames {
                 print("sorted: \(name)")
                 sortedBarModels += barModels!.filter { $0.name == name }
-                ResultTableView.reloadData()
-                ResultTableView.separatorStyle = .singleLine
             }
+            ResultTableView.reloadData()
+            ResultTableView.separatorStyle = .singleLine
         } else {
             print("can't bar crawwling for some unknown reason")
         }
