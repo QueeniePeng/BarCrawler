@@ -1,5 +1,4 @@
 ### BarCrawler
-This is a demo app for SpotHero
 
 This app queries yelp for 10 local bars near the user's location.
 The user selects a bar, then the app returns a list of bars on your route

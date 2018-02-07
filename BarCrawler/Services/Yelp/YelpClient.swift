@@ -15,7 +15,10 @@ class YelpClient: NSObject {
     private let headerValue = "Bearer" + " " + Constants.accessToken
     private let headerField = "Authorization"
     
-    func makeRequest(url: URL, method: String, headerValue: String, headerField: String) -> URLRequest? {
+    func makeRequest(url: URL,
+                     method: String,
+                     headerValue: String,
+                     headerField: String) -> URLRequest? {
         var request = URLRequest(url: url)
         request.httpMethod = method
         request.setValue(headerValue, forHTTPHeaderField: headerField)
